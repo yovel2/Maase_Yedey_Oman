@@ -64,13 +64,12 @@
             justify-content: space-between;
             gap: 40px;
         }
-        .intro-text { flex: 1; font-size: 1.15rem; }
+        /* תיקון 1: הוספת מרכוז טקסט */
+        .intro-text { flex: 1; font-size: 1.15rem; text-align: center; }
         .intro-image { flex: 1; text-align: center; }
         .intro-image img {
             max-width: 100%;
             height: auto;
-            /* אפשר להוסיף מסגרת או צל עדין אם רוצים */
-            /* border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); */
         }
 
         /* --- Services Grid --- */
@@ -153,6 +152,7 @@
             margin-bottom: 15px;
             font-weight: bold;
             font-size: 1.3rem;
+            text-align: center; /* וידוא מרכוז גם בדסקטופ */
         }
 
         /* --- Footer & Closing --- */
@@ -177,15 +177,28 @@
             h1 { font-size: 2.2rem; }
             header { padding: 80px 20px; }
             
-            /* הופך את פסקת הפתיחה לטור (תמונה מתחת לטקסט) */
             .intro-container { flex-direction: column; }
             .intro-image img { max-width: 80%; margin-top: 20px; }
 
-            .benefits-list li { flex: 1 1 100%; }
+            /* תיקון 2: הקטנת פונט במובייל כדי שייכנס בשורה אחת */
+            .benefits-list li { 
+                flex: 1 1 100%;
+                font-size: 0.95rem; 
+            }
             
             .steps-container { grid-template-columns: 1fr; }
             .step { display: flex; align-items: center; text-align: right; padding: 20px; }
-            .step-number { margin-bottom: 0; margin-left: 20px; flex-shrink: 0; }
+            
+            /* תיקון 3: מרכוז המספר בתוך העיגול במובייל */
+            .step-number { 
+                margin-bottom: 0; 
+                margin-left: 20px; 
+                flex-shrink: 0;
+                display: flex; /* שימוש בפלקס למרכוז מושלם */
+                align-items: center;
+                justify-content: center;
+                line-height: normal; /* איפוס גובה שורה כדי שהפלקס יעבוד */
+            }
             
             .closing-text { font-size: 1.1rem; }
         }
