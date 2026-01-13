@@ -56,7 +56,22 @@
 
         /* --- Layout Sections --- */
         section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
-        .intro-text { text-align: center; font-size: 1.15rem; }
+
+        /* --- Intro Section with Image --- */
+        .intro-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .intro-text { flex: 1; font-size: 1.15rem; }
+        .intro-image { flex: 1; text-align: center; }
+        .intro-image img {
+            max-width: 100%;
+            height: auto;
+            /* אפשר להוסיף מסגרת או צל עדין אם רוצים */
+            /* border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); */
+        }
 
         /* --- Services Grid --- */
         .services-grid {
@@ -93,12 +108,12 @@
             padding: 0;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* ממרכז את השורה השנייה */
+            justify-content: center;
             gap: 20px;
         }
 
         .benefits-list li {
-            flex: 0 1 30%; /* מאפשר 3 בשורה במחשב */
+            flex: 0 1 30%;
             min-width: 250px;
             font-size: 1.1rem;
             display: flex;
@@ -114,7 +129,7 @@
         /* --- How it works (2x2 Grid) --- */
         .steps-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 בשורה */
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
             margin-top: 40px;
         }
@@ -155,20 +170,19 @@
             line-height: 1.8;
         }
 
-        .closing-text span {
-            display: block; /* דואג לירידת שורה */
-            margin-bottom: 10px;
-        }
+        .closing-text span { display: block; margin-bottom: 10px; }
 
         /* --- Mobile Adjustments --- */
         @media (max-width: 768px) {
             h1 { font-size: 2.2rem; }
             header { padding: 80px 20px; }
             
-            /* למה לבחור בי - טור אחד במובייל */
+            /* הופך את פסקת הפתיחה לטור (תמונה מתחת לטקסט) */
+            .intro-container { flex-direction: column; }
+            .intro-image img { max-width: 80%; margin-top: 20px; }
+
             .benefits-list li { flex: 1 1 100%; }
             
-            /* איך זה עובד - טור אחד במובייל */
             .steps-container { grid-template-columns: 1fr; }
             .step { display: flex; align-items: center; text-align: right; padding: 20px; }
             .step-number { margin-bottom: 0; margin-left: 20px; flex-shrink: 0; }
@@ -187,10 +201,17 @@
         <a href="https://api.whatsapp.com/send?phone=972502773333&text=שלום,+אשמח+לקבל+פרטים+על+הזמנה+ממעשה+ידי+אומן+🍰" class="btn btn-peach">להזמנה בוואטסאפ</a>
     </header>
 
-    <section class="intro-text">
-        <p>את רוצה לארח, לחגוג או לפנק – אבל בלי להתפשר על איכות, טעם ונראות.</p>
-        <p>ב־<strong>מעשה ידי אומן</strong> אני מכינה עבורך עוגות, קינוחים ומארזים בעבודת יד, מחומרי גלם איכותיים, עם תשומת לב לכל פרט – מהטעם ועד ההגשה.</p>
-        <p>בין אם זה יום הולדת, אירוע משפחתי, בוקר חגיגי או אירוע עסקי – אני כאן כדי שתוכלי להגיש משהו יפה, טעים ומרשים בלי להיכנס למטבח לשעות.</p>
+    <section>
+        <div class="intro-container">
+            <div class="intro-image">
+                <img src="Media/gali.png" alt="גלי - מעשה ידי אומן">
+            </div>
+            <div class="intro-text">
+                <p>את רוצה לארח, לחגוג או לפנק – אבל בלי להתפשר על איכות, טעם ונראות.</p>
+                <p>ב־<strong>מעשה ידי אומן</strong> אני מכינה עבורך עוגות, קינוחים ומארזים בעבודת יד, מחומרי גלם איכותיים, עם תשומת לב לכל פרט – מהטעם ועד ההגשה.</p>
+                <p>בין אם זה יום הולדת, אירוע משפחתי, בוקר חגיגי או אירוע עסקי – אני כאן כדי שתוכלי להגיש משהו יפה, טעים ומרשים בלי להיכנס למטבח לשעות.</p>
+            </div>
+        </div>
     </section>
 
     <section id="menu">
